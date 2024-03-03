@@ -39,6 +39,18 @@ def extras(cfg: DictConfig) -> None:
         log.info("Printing config tree with Rich! <cfg.extras.print_config=True>")
         rich_utils.print_config_tree(cfg, resolve=True, save_to_file=True)
 
+    def fix_DictConfig(cfg: DictConfig):
+        """fix all vars in the cfg config
+        this is a in-place operation"""
+        keys = list(cfg.keys())
+        for k in keys:
+            if type(cfg[k]) is DictConfig:
+                fix_DictConfig(cfg[k])
+            else:
+                setattr(cfg, k, getattr(cfg, k))
+
+    fix_DictConfig(cfg)
+
 
 def task_wrapper(task_func: Callable) -> Callable:
     """Optional decorator that controls the failure behavior when executing the task function.
