@@ -19,12 +19,12 @@ def extras(cfg: DictConfig) -> None:
 
     :param cfg: A DictConfig object containing the config tree.
     """
-    # return if no `extras` config
+gi
     if not cfg.get("extras"):
         log.warning("Extras config not found! <cfg.extras=null>")
         return
 
-    # disable python warnings
+
     if cfg.extras.get("ignore_warnings"):
         log.info("Disabling python warnings! <cfg.extras.ignore_warnings=True>")
         warnings.filterwarnings("ignore")
