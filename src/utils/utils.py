@@ -19,17 +19,17 @@ def extras(cfg: DictConfig) -> None:
 
     :param cfg: A DictConfig object containing the config tree.
     """
-gi
+    # return if no `extras` config
     if not cfg.get("extras"):
         log.warning("Extras config not found! <cfg.extras=null>")
         return
 
-
+    # disable python warnings
     if cfg.extras.get("ignore_warnings"):
         log.info("Disabling python warnings! <cfg.extras.ignore_warnings=True>")
         warnings.filterwarnings("ignore")
 
-
+    # prompt user to input tags from command line if none are provided in the config
     if cfg.extras.get("enforce_tags"):
         log.info("Enforcing tags! <cfg.extras.enforce_tags=True>")
         rich_utils.enforce_tags(cfg, save_to_file=True)
