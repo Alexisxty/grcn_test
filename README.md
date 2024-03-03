@@ -24,7 +24,7 @@ _Suggestions are always welcome!_
 
 <br>
 
-## 📌  Introduction
+
 
 **Why you might want to use it:**
 
