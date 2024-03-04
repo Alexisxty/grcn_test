@@ -1,0 +1,7 @@
+_target_: src.data.Cora_datamodule.CoraDataModule
+data_dir: ${paths.data_dir}
+batch_size: 1  # 整个图作为一个批次处理
+num_workers: 4
+pin_memory: True
+num_features: 1433  # Cora节点特征的维度
+num_classes: 7  # Cora数据集的类别数
