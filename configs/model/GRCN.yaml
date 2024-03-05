@@ -1,24 +1,14 @@
-_target_: src.models.GRCN_Net.GRCNLightningModule
+_target_: src.models.GRCN_Net.GRCNModel
 
-hidden_layers: [64, 32]
+num_features: 1433  # 根据Cora数据集特征维度
+num_classes: 7      # 根据Cora数据集类别数
+hid_feats: 16
+graph_nhid: 32
+graph_nhid2: 64
 dropout: 0.5
 
-optimizer:
-  _target_: torch.optim.Adam
-  _partial_: true
-  lr: 0.01
-  weight_decay: 5e-4
 
-scheduler:
-  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
-  _partial_: true
-  mode: min
-  factor: 0.1
-  patience: 10
-  threshold: 1e-4
-  threshold_mode: 'rel'
-  cooldown: 0
-  min_lr: 0
-  eps: 1e-8
 
-compile: false
+
+
+
